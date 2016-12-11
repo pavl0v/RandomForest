@@ -1,0 +1,253 @@
+{
+  "Root": {
+    "ExamItems": 300,
+    "Less": {
+      "ExamItems": 88,
+      "Less": {
+        "ExamItems": 72,
+        "Less": null,
+        "Greater": null,
+        "IsTerminal": true,
+        "Category": "C001",
+        "FeatureName": null,
+        "FeatureValue": 0.0,
+        "Average": 1.0
+      },
+      "Greater": {
+        "ExamItems": 16,
+        "Less": {
+          "ExamItems": 1,
+          "Less": null,
+          "Greater": null,
+          "IsTerminal": true,
+          "Category": "C002",
+          "FeatureName": null,
+          "FeatureValue": 0.0,
+          "Average": 2.0
+        },
+        "Greater": {
+          "ExamItems": 15,
+          "Less": null,
+          "Greater": null,
+          "IsTerminal": true,
+          "Category": "C003",
+          "FeatureName": null,
+          "FeatureValue": 0.0,
+          "Average": 1.0
+        },
+        "IsTerminal": false,
+        "Category": null,
+        "FeatureName": "X",
+        "FeatureValue": 1.07511,
+        "Average": 1.0625
+      },
+      "IsTerminal": false,
+      "Category": null,
+      "FeatureName": "X",
+      "FeatureValue": 1.06254,
+      "Average": 1.0113636363636365
+    },
+    "Greater": {
+      "ExamItems": 212,
+      "Less": {
+        "ExamItems": 127,
+        "Less": {
+          "ExamItems": 92,
+          "Less": {
+            "ExamItems": 30,
+            "Less": null,
+            "Greater": null,
+            "IsTerminal": true,
+            "Category": "C004",
+            "FeatureName": null,
+            "FeatureValue": 0.0,
+            "Average": 1.0
+          },
+          "Greater": {
+            "ExamItems": 62,
+            "Less": {
+              "ExamItems": 47,
+              "Less": {
+                "ExamItems": 36,
+                "Less": null,
+                "Greater": null,
+                "IsTerminal": true,
+                "Category": "C005",
+                "FeatureName": null,
+                "FeatureValue": 0.0,
+                "Average": 2.0
+              },
+              "Greater": {
+                "ExamItems": 11,
+                "Less": {
+                  "ExamItems": 5,
+                  "Less": null,
+                  "Greater": null,
+                  "IsTerminal": true,
+                  "Category": "C006",
+                  "FeatureName": null,
+                  "FeatureValue": 0.0,
+                  "Average": 1.0
+                },
+                "Greater": {
+                  "ExamItems": 6,
+                  "Less": null,
+                  "Greater": null,
+                  "IsTerminal": true,
+                  "Category": "C007",
+                  "FeatureName": null,
+                  "FeatureValue": 0.0,
+                  "Average": 2.0
+                },
+                "IsTerminal": false,
+                "Category": null,
+                "FeatureName": "X",
+                "FeatureValue": 2.03109,
+                "Average": 1.5454545454545454
+              },
+              "IsTerminal": false,
+              "Category": null,
+              "FeatureName": "Y",
+              "FeatureValue": 3.21139,
+              "Average": 1.8936170212765957
+            },
+            "Greater": {
+              "ExamItems": 15,
+              "Less": {
+                "ExamItems": 6,
+                "Less": null,
+                "Greater": null,
+                "IsTerminal": true,
+                "Category": "C008",
+                "FeatureName": null,
+                "FeatureValue": 0.0,
+                "Average": 1.0
+              },
+              "Greater": {
+                "ExamItems": 9,
+                "Less": null,
+                "Greater": null,
+                "IsTerminal": true,
+                "Category": "C009",
+                "FeatureName": null,
+                "FeatureValue": 0.0,
+                "Average": 1.8888888888888888
+              },
+              "IsTerminal": false,
+              "Category": null,
+              "FeatureName": "Y",
+              "FeatureValue": 1.95855,
+              "Average": 1.5333333333333334
+            },
+            "IsTerminal": false,
+            "Category": null,
+            "FeatureName": "X",
+            "FeatureValue": 2.97157,
+            "Average": 1.8064516129032258
+          },
+          "IsTerminal": false,
+          "Category": null,
+          "FeatureName": "Y",
+          "FeatureValue": 1.01325,
+          "Average": 1.5434782608695652
+        },
+        "Greater": {
+          "ExamItems": 35,
+          "Less": null,
+          "Greater": null,
+          "IsTerminal": true,
+          "Category": "C010",
+          "FeatureName": null,
+          "FeatureValue": 0.0,
+          "Average": 1.0
+        },
+        "IsTerminal": false,
+        "Category": null,
+        "FeatureName": "Y",
+        "FeatureValue": 3.80844,
+        "Average": 1.3937007874015748
+      },
+      "Greater": {
+        "ExamItems": 85,
+        "Less": {
+          "ExamItems": 16,
+          "Less": {
+            "ExamItems": 15,
+            "Less": {
+              "ExamItems": 9,
+              "Less": null,
+              "Greater": null,
+              "IsTerminal": true,
+              "Category": "C011",
+              "FeatureName": null,
+              "FeatureValue": 0.0,
+              "Average": 1.0
+            },
+            "Greater": {
+              "ExamItems": 6,
+              "Less": null,
+              "Greater": null,
+              "IsTerminal": true,
+              "Category": "C012",
+              "FeatureName": null,
+              "FeatureValue": 0.0,
+              "Average": 1.1666666666666667
+            },
+            "IsTerminal": false,
+            "Category": null,
+            "FeatureName": "X",
+            "FeatureValue": 3.74164,
+            "Average": 1.0666666666666667
+          },
+          "Greater": {
+            "ExamItems": 1,
+            "Less": null,
+            "Greater": null,
+            "IsTerminal": true,
+            "Category": "C013",
+            "FeatureName": null,
+            "FeatureValue": 0.0,
+            "Average": 2.0
+          },
+          "IsTerminal": false,
+          "Category": null,
+          "FeatureName": "X",
+          "FeatureValue": 3.88352,
+          "Average": 1.125
+        },
+        "Greater": {
+          "ExamItems": 69,
+          "Less": null,
+          "Greater": null,
+          "IsTerminal": true,
+          "Category": "C014",
+          "FeatureName": null,
+          "FeatureValue": 0.0,
+          "Average": 1.0
+        },
+        "IsTerminal": false,
+        "Category": null,
+        "FeatureName": "X",
+        "FeatureValue": 3.90153,
+        "Average": 1.0235294117647058
+      },
+      "IsTerminal": false,
+      "Category": null,
+      "FeatureName": "X",
+      "FeatureValue": 3.40589,
+      "Average": 1.2452830188679245
+    },
+    "IsTerminal": false,
+    "Category": null,
+    "FeatureName": "X",
+    "FeatureValue": 1.29197,
+    "Average": 1.1766666666666668
+  },
+  "FeatureNames": [
+    "X",
+    "Y",
+    "Z"
+  ],
+  "ResolutionFeatureName": "Z",
+  "MaxItemCountInCategory": 10
+}

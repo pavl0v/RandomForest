@@ -1,0 +1,35 @@
+﻿<Window x:Class="RandomForest.App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RandomForest.App"
+        xmlns:views="clr-namespace:RandomForest.App.Views"
+        mc:Ignorable="d"
+        Title="Random Forest" Height="480" Width="640"
+        DataContext="{Binding MainWindowViewModel, Source={StaticResource ResourceKey=ViewModelLocator}}" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:TemplateSelector x:Key="templateSelector" />
+        <local:EnumBoolConverter x:Key="enumBoolConverter" />
+        <DataTemplate x:Key="t1">
+            <views:UCExcelMode></views:UCExcelMode>
+        </DataTemplate>
+        <DataTemplate x:Key="t2">
+            <views:UCJsonMode></views:UCJsonMode>
+        </DataTemplate>        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="Mode:" VerticalContentAlignment="Center"></Label>
+            <RadioButton x:Name="rbExcel" Content="Microsoft Excel" Margin="4" VerticalContentAlignment="Bottom" IsChecked="{Binding SelectedMode, Converter={StaticResource enumBoolConverter}, ConverterParameter=Excel}"></RadioButton>
+            <RadioButton x:Name="rbJson" Content="JSON" Margin="4" IsEnabled="False" VerticalContentAlignment="Bottom" IsChecked="{Binding SelectedMode, Converter={StaticResource enumBoolConverter}, ConverterParameter=Json}"></RadioButton>
+        </StackPanel>
+        <ContentPresenter Grid.Row="1" ContentTemplateSelector="{StaticResource ResourceKey=templateSelector}" Content="{Binding Path=SelectedMode}">
+            
+        </ContentPresenter>
+    </Grid>
+</Window>
