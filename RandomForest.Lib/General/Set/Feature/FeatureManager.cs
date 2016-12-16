@@ -111,13 +111,15 @@ namespace RandomForest.Lib.General.Set.Feature
 
         public bool Remove(string featureName)
         {
-            _features.Remove(featureName);
+            bool res = _features.Remove(featureName);
+            if (!res)
+                return res;
 
             var featureRemoved = FeatureRemoved;
             if (featureRemoved != null)
                 featureRemoved(this, featureName);
 
-            return true;
+            return res;
         }
     }
 }

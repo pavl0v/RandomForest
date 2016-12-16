@@ -20,5 +20,7 @@ namespace RandomForest.Lib.General.Set.Feature
         void Clear();
         List<string> GetFeatureNames();
         Type GetFeatureType(string featureName);
+        bool IsFeatureNumerical(string featureName);
+        bool IsFeatureCategorical(string featureName);
     }
 }
