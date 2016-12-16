@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RandomForest.Lib.General.Item
+namespace RandomForest.Lib.General.Set.Item
 {
     class FeatureValue
     {

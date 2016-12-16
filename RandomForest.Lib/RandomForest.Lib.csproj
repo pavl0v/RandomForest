@@ -51,13 +51,14 @@
   <ItemGroup>
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="Fake.cs" />
-    <Compile Include="General\Feature\Feature.cs" />
-    <Compile Include="General\Feature\FeatureManager.cs" />
-    <Compile Include="General\Feature\FeatureTypeEnum.cs" />
-    <Compile Include="General\Feature\IFeatureManager.cs" />
-    <Compile Include="General\Item\FeatureValue.cs" />
-    <Compile Include="General\Item\Item.cs" />
-    <Compile Include="General\Set.cs" />
+    <Compile Include="General\Set\Feature\Feature.cs" />
+    <Compile Include="General\Set\Feature\FeatureManager.cs" />
+    <Compile Include="General\Set\Feature\FeatureTypeEnum.cs" />
+    <Compile Include="General\Set\Feature\IFeatureManager.cs" />
+    <Compile Include="General\Set\Item\FeatureValue.cs" />
+    <Compile Include="General\Set\Item\Item.cs" />
+    <Compile Include="General\Set\Item\ItemComparer.cs" />
+    <Compile Include="General\Set\Set.cs" />
     <Compile Include="NameGenerator.cs" />
     <Compile Include="Numerical\Interfaces\ForestFactory.cs" />
     <Compile Include="Numerical\Interfaces\ForestGrowParameters.cs" />
@@ -98,7 +99,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="General\Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

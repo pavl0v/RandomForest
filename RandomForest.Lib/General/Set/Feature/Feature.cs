@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RandomForest.Lib.General.Feature
+namespace RandomForest.Lib.General.Set.Feature
 {
     class Feature
     {

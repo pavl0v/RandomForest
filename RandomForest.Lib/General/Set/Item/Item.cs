@@ -1,11 +1,11 @@
-﻿using RandomForest.Lib.General.Feature;
+﻿using RandomForest.Lib.General.Set.Feature;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RandomForest.Lib.General.Item
+namespace RandomForest.Lib.General.Set.Item
 {
     class Item
     {
