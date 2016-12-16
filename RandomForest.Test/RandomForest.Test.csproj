@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="General\FeatureManagerTest.cs" />
+    <Compile Include="General\SetTest.cs" />
     <Compile Include="Numerical\FeatureNumericalManagerTest.cs" />
     <Compile Include="Numerical\ForestTest.cs" />
     <Compile Include="Numerical\ItemNumericalTest.cs" />

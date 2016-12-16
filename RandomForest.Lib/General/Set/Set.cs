@@ -10,10 +10,10 @@ namespace RandomForest.Lib.General.Set
 {
     class Set : RandomIndexer
     {
-        private FeatureManager _featureManager;
+        private IFeatureManager _featureManager;
         private List<Item.Item> _items = new List<Item.Item>();
 
-        public Set(FeatureManager featureManager)
+        public Set(IFeatureManager featureManager)
         {
             _featureManager = featureManager;
         }
@@ -25,7 +25,7 @@ namespace RandomForest.Lib.General.Set
             foreach (var name in names)
             {
                 Feature.Feature feature = _featureManager.Get(name);
-                item.AddValue(name, null);
+                item.AddValue(name, "0");
             }
             return item;
         }
@@ -70,7 +70,10 @@ namespace RandomForest.Lib.General.Set
 
             double sum = 0;
             foreach (var item in _items)
-                sum += Convert.ToDouble(item.GetValue(featureName));
+            {
+                FeatureValue fv = item.GetValue(featureName);
+                sum += fv.GetValue<double>();
+            }
             res = sum / _items.Count;
 
             return res;
@@ -86,7 +89,7 @@ namespace RandomForest.Lib.General.Set
             double avg = GetAverage(featureName);
             foreach (var item in _items)
             {
-                Item.FeatureValue fv = item.GetValue(featureName);
+                FeatureValue fv = item.GetValue(featureName);
                 double d = fv.GetValue<double>();
                 res += Math.Pow(d - avg, 2);
             }
