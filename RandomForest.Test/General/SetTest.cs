@@ -156,5 +156,40 @@ namespace RandomForest.Test.General
 
             // assert
         }
+
+        [TestMethod]
+        public void GetGini_Categorical_Returns()
+        {
+            // arrange
+            IFeatureManager manager = new FeatureManager();
+            manager.Add(new Feature("C", FeatureType.Categorical));
+
+            _set = new Set(manager);
+
+            Item i1 = _set.CreateItem();
+            i1.SetValue("C", "C");
+            _set.AddItem(i1);
+
+            Item i2 = _set.CreateItem();
+            i2.SetValue("C", "C");
+            _set.AddItem(i2);
+
+            Item i3 = _set.CreateItem();
+            i3.SetValue("C", "C");
+            _set.AddItem(i3);
+
+            Item i4 = _set.CreateItem();
+            i4.SetValue("C", "C");
+            _set.AddItem(i4);
+
+            Item i5 = _set.CreateItem();
+            i5.SetValue("C", "A");
+            _set.AddItem(i5);
+
+            // act
+            double d = _set.GetGini("C");
+
+            // assert
+        }
     }
 }
