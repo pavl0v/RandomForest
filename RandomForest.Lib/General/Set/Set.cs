@@ -106,7 +106,7 @@ namespace RandomForest.Lib.General.Set
             else
                 res = GetGiniCategorical(featureName);
 
-            return 0;
+            return res;
         }
 
         private double GetGiniNumerical(string featureName)
@@ -145,7 +145,7 @@ namespace RandomForest.Lib.General.Set
             Dictionary<string, int> dic = new Dictionary<string, int>();
             foreach (var i in _items)
             {
-                Item.FeatureValue fv = i.GetValue(featureName);
+                FeatureValue fv = i.GetValue(featureName);
                 string v = Convert.ToString(fv.Value);
                 if (dic.ContainsKey(v))
                     dic[v]++;
@@ -153,14 +153,22 @@ namespace RandomForest.Lib.General.Set
                     dic.Add(v, 1);
             }
 
-            double p = 0;
+            double sum = 0;
             foreach (var kv in dic)
             {
-                double pro = (kv.Value * 1.0) / n;
-                p = p + pro * (1 - pro);
+                double p = (kv.Value * 1.0) / n;
+                sum += Math.Pow(p, 2);
             }
 
-            return Math.Round(p, 5);
+            double res = 1 - sum;
+
+            // min = 0
+            // max = 1 - 1 / n
+
+            //double max = 1 - 1.0 / n;
+            //res = res / max;
+
+            return Math.Round(res, 5);
         }
 
         public void SortItems(string featureName)
