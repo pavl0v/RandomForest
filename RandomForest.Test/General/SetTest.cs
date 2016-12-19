@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomForest.Lib.General.Set.Feature;
 using RandomForest.Lib.General.Set;
 using RandomForest.Lib.General.Set.Item;
+using System.Collections.Generic;
 
 namespace RandomForest.Test.General
 {
@@ -158,7 +159,20 @@ namespace RandomForest.Test.General
         }
 
         [TestMethod]
-        public void GetGini_Categorical_Returns()
+        public void GetRSS_Numerical_Returns()
+        {
+            // arrange
+            Fill_Set_ThreeItems();
+
+            // act
+            double d = _set.GetRSS("N");
+
+            // assert
+            Assert.AreEqual(2, d);
+        }
+
+        [TestMethod]
+        public void GetGini_Categorical_ReturnsMax()
         {
             // arrange
             IFeatureManager manager = new FeatureManager();
@@ -167,11 +181,11 @@ namespace RandomForest.Test.General
             _set = new Set(manager);
 
             Item i1 = _set.CreateItem();
-            i1.SetValue("C", "C");
+            i1.SetValue("C", "A");
             _set.AddItem(i1);
 
             Item i2 = _set.CreateItem();
-            i2.SetValue("C", "C");
+            i2.SetValue("C", "B");
             _set.AddItem(i2);
 
             Item i3 = _set.CreateItem();
@@ -179,17 +193,164 @@ namespace RandomForest.Test.General
             _set.AddItem(i3);
 
             Item i4 = _set.CreateItem();
-            i4.SetValue("C", "C");
+            i4.SetValue("C", "D");
             _set.AddItem(i4);
-
-            Item i5 = _set.CreateItem();
-            i5.SetValue("C", "A");
-            _set.AddItem(i5);
 
             // act
             double d = _set.GetGini("C");
 
             // assert
+            Assert.AreEqual(0.75, d);
+        }
+
+        [TestMethod]
+        public void GetGini_Categorical_ReturnsMin()
+        {
+            // arrange
+            IFeatureManager manager = new FeatureManager();
+            manager.Add(new Feature("C", FeatureType.Categorical));
+
+            _set = new Set(manager);
+
+            Item i1 = _set.CreateItem();
+            i1.SetValue("C", "A");
+            _set.AddItem(i1);
+
+            Item i2 = _set.CreateItem();
+            i2.SetValue("C", "A");
+            _set.AddItem(i2);
+
+            Item i3 = _set.CreateItem();
+            i3.SetValue("C", "A");
+            _set.AddItem(i3);
+
+            Item i4 = _set.CreateItem();
+            i4.SetValue("C", "A");
+            _set.AddItem(i4);
+
+            // act
+            double d = _set.GetGini("C");
+
+            // assert
+            Assert.AreEqual(0, d);
+        }
+
+        [TestMethod]
+        public void GetGini_Numerical_ReturnsMax()
+        {
+            // arrange
+            IFeatureManager manager = new FeatureManager();
+            manager.Add(new Feature("N", FeatureType.Numerical));
+
+            _set = new Set(manager);
+
+            Item i1 = _set.CreateItem();
+            i1.SetValue("N", 1);
+            _set.AddItem(i1);
+
+            Item i2 = _set.CreateItem();
+            i2.SetValue("N", 2);
+            _set.AddItem(i2);
+
+            Item i3 = _set.CreateItem();
+            i3.SetValue("N", 3);
+            _set.AddItem(i3);
+
+            Item i4 = _set.CreateItem();
+            i4.SetValue("N", 4);
+            _set.AddItem(i4);
+
+            // act
+            double d = _set.GetGini("N");
+
+            // assert
+            Assert.AreEqual(0.75, d);
+        }
+
+        [TestMethod]
+        public void GetGini_Numerical_ReturnsMin()
+        {
+            // arrange
+            IFeatureManager manager = new FeatureManager();
+            manager.Add(new Feature("N", FeatureType.Numerical));
+
+            _set = new Set(manager);
+
+            Item i1 = _set.CreateItem();
+            i1.SetValue("N", 1);
+            _set.AddItem(i1);
+
+            Item i2 = _set.CreateItem();
+            i2.SetValue("N", 1);
+            _set.AddItem(i2);
+
+            Item i3 = _set.CreateItem();
+            i3.SetValue("N", 1);
+            _set.AddItem(i3);
+
+            Item i4 = _set.CreateItem();
+            i4.SetValue("N", 1);
+            _set.AddItem(i4);
+
+            // act
+            double d = _set.GetGini("N");
+
+            // assert
+            Assert.AreEqual(0, d);
+        }
+
+        [TestMethod]
+        public void GetFeatureNames_Returns()
+        {
+            // arrange
+            Fill_Set_ThreeItems();
+
+            // act
+            List<string> names = _set.GetFeatureNames();
+
+            // assert
+            Assert.IsNotNull(names);
+            Assert.AreEqual(names.Count, 2);
+            CollectionAssert.AreEquivalent(names, new List<string> { "N", "C" });
+        }
+
+        [TestMethod]
+        public void AddFeature_Returns()
+        {
+            // arrange
+            Fill_Set_ThreeItems();
+
+            // act
+            bool r = _set.AddFeature("X", FeatureType.Categorical);
+            bool cc = _set.CheckConsistency();
+            List<string> names = _set.GetFeatureNames();
+
+            // assert
+            Assert.IsTrue(r);
+            Assert.IsTrue(cc);
+            Assert.IsNotNull(names);
+            Assert.AreEqual(names.Count, 3);
+            CollectionAssert.AreEquivalent(names, new List<string> { "N", "C", "X" });
+        }
+
+        [TestMethod]
+        public void RemoveFeature_Returns()
+        {
+            // arrange
+            Fill_Set_ThreeItems();
+
+            // act
+            _set.AddFeature("X", FeatureType.Categorical);
+            bool r = _set.RemoveFeature("C");
+            bool cc = _set.CheckConsistency();
+            List<string> names = _set.GetFeatureNames();
+
+            // assert
+            Assert.IsTrue(r);
+            Assert.IsTrue(cc);
+            Assert.IsNotNull(names);
+            Assert.AreEqual(names.Count, 2);
+            CollectionAssert.AreEquivalent(names, new List<string> { "N", "X" });
         }
     }
 }
