@@ -83,7 +83,11 @@ namespace RandomForest.Lib.General.Set.Item
 
         private void SetValue(Feature.Feature feature, object featureValue)
         {
+            if (featureValue == null)
+                throw new ArgumentNullException();
+
             string temp = featureValue.ToString().Trim();
+
             switch (feature.Type)
             {
                 case FeatureType.Categorical:
