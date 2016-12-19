@@ -31,7 +31,10 @@ namespace RandomForest.Lib.General.Set.Item
                 throw new Exception("Unknown feature name.");
 
             if (!HasValue(featureName))
-                throw new Exception("There is no feature with specified name.");
+            {
+                AddValue(featureName, featureValue);
+                return;
+            }
 
             if (featureValue == null)
                 throw new Exception("Feature value is null.");
@@ -56,10 +59,14 @@ namespace RandomForest.Lib.General.Set.Item
             SetValue(feature, featureValue);
         }
 
-        public void RemoveValue(string featureName)
+        public bool RemoveValue(string featureName)
         {
+            bool res = false;
+
             if (HasValue(featureName))
-                _values.Remove(featureName);
+                res = _values.Remove(featureName);
+
+            return res;
         }
 
         public FeatureValue GetValue(string featureName)
