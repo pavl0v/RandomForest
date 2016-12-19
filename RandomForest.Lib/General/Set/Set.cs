@@ -205,6 +205,11 @@ namespace RandomForest.Lib.General.Set
             return _featureManager.GetFeatureNames();
         }
 
+        public Feature.Feature GetFeature(string featureName)
+        {
+            return _featureManager.Get(featureName);
+        }
+
         public bool AddFeature(string featureName, FeatureType featureType)
         {
             return _featureManager.Add(new Feature.Feature(featureName, featureType));
@@ -243,6 +248,20 @@ namespace RandomForest.Lib.General.Set
             foreach (int idx in idxLst)
                 res.AddItem(_items[idx]);
 
+            return res;
+        }
+
+        public Set Clone()
+        {
+            FeatureManager fm = new FeatureManager();
+            List<string> names = _featureManager.GetFeatureNames();
+            foreach(string n in names)
+            {
+                Feature.Feature f = _featureManager.Get(n);
+                Feature.Feature nf = new Feature.Feature(f.Name, f.Type);
+                fm.Add(nf);
+            }
+            Set res = new Set(fm);
             return res;
         }
     }

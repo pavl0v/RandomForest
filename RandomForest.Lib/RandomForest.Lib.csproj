@@ -54,12 +54,16 @@
     <Compile Include="General\Set\ExcelParser.cs" />
     <Compile Include="General\Set\Feature\Feature.cs" />
     <Compile Include="General\Set\Feature\FeatureManager.cs" />
+    <Compile Include="General\Set\Feature\FeatureSplitValue.cs" />
     <Compile Include="General\Set\Feature\FeatureTypeEnum.cs" />
     <Compile Include="General\Set\Feature\IFeatureManager.cs" />
     <Compile Include="General\Set\Item\FeatureValue.cs" />
     <Compile Include="General\Set\Item\Item.cs" />
     <Compile Include="General\Set\Item\ItemComparer.cs" />
     <Compile Include="General\Set\Set.cs" />
+    <Compile Include="General\Splitters\ISplitter.cs" />
+    <Compile Include="General\Splitters\SplitterGini.cs" />
+    <Compile Include="General\Splitters\SplitterRss.cs" />
     <Compile Include="NameGenerator.cs" />
     <Compile Include="Numerical\Interfaces\ForestFactory.cs" />
     <Compile Include="Numerical\Interfaces\ForestGrowParameters.cs" />
