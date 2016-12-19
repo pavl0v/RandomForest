@@ -59,6 +59,7 @@
     <Compile Include="General\FeatureManagerTest.cs" />
     <Compile Include="General\SetTest.cs" />
     <Compile Include="General\ItemTest.cs" />
+    <Compile Include="General\ExcelParserTest.cs" />
     <Compile Include="Numerical\FeatureNumericalManagerTest.cs" />
     <Compile Include="Numerical\ForestTest.cs" />
     <Compile Include="Numerical\ItemNumericalTest.cs" />
@@ -371,6 +372,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\test-4x15.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\test-gen-4x10.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

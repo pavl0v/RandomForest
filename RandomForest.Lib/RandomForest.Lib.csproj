@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="Fake.cs" />
+    <Compile Include="General\Set\ExcelParser.cs" />
     <Compile Include="General\Set\Feature\Feature.cs" />
     <Compile Include="General\Set\Feature\FeatureManager.cs" />
     <Compile Include="General\Set\Feature\FeatureTypeEnum.cs" />
