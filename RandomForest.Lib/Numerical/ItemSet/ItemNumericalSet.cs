@@ -124,7 +124,8 @@ namespace RandomForest.Lib.Numerical.ItemSet
                 return 1;
 
             Dictionary<double, int> dic = new Dictionary<double, int>();
-            foreach(var i in _items)
+
+            foreach (var i in _items)
             {
                 double v = i.GetValue(featureName);
                 if (dic.ContainsKey(v))
@@ -133,14 +134,22 @@ namespace RandomForest.Lib.Numerical.ItemSet
                     dic.Add(v, 1);
             }
 
-            double p = 0;
-            foreach(var kv in dic)
+            double sum = 0;
+            foreach (var kv in dic)
             {
-                double pro = (kv.Value * 1.0) / n;
-                p = p + pro * (1 - pro);
+                double p = (kv.Value * 1.0) / n;
+                sum += Math.Pow(p, 2);
             }
 
-            return Math.Round(p, 5);
+            double res = 1 - sum;
+
+            // min = 0
+            // max = 1 - 1 / n
+
+            //double max = 1 - 1.0 / n;
+            //res = res / max;
+
+            return Math.Round(res, 5);
         }
 
         public double GetAverage(string featureName)
