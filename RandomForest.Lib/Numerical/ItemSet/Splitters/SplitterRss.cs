@@ -31,8 +31,10 @@ namespace RandomForest.Lib.Numerical.ItemSet.Splitters
                 int qty = set.Count();
                 for (int k = 1; k < qty; k++)
                 {
-                    ItemNumericalSet left = new ItemNumericalSet(featureNameList);
-                    ItemNumericalSet right = new ItemNumericalSet(featureNameList);
+                    //ItemNumericalSet left = new ItemNumericalSet(featureNameList);
+                    //ItemNumericalSet right = new ItemNumericalSet(featureNameList);
+                    ItemNumericalSet left = set.Clone();
+                    ItemNumericalSet right = set.Clone();
                     for (int i = 0; i < k; i++)
                         left.AddItem(set.GetItem(i));
                     for (int i = k; i < qty; i++)

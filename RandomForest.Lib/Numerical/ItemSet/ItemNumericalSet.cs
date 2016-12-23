@@ -226,5 +226,19 @@ namespace RandomForest.Lib.Numerical.ItemSet
             SortItems(featureName);
             return _items[Count() - 1].GetValue(featureName);
         }
+
+        public ItemNumericalSet Clone()
+        {
+            FeatureNumericalManager fm = new FeatureNumericalManager();
+            List<string> names = _featureManager.GetFeatureNames();
+            foreach (string n in names)
+            {
+                FeatureNumerical f = _featureManager.Get(n);
+                FeatureNumerical nf = new FeatureNumerical(f.Name);
+                fm.Add(nf);
+            }
+            ItemNumericalSet res = new ItemNumericalSet(fm);
+            return res;
+        }
     }
 }
